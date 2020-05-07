@@ -51,7 +51,27 @@ middleImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
 let navItems = document.querySelectorAll("nav a")
 navItems.forEach((el, index) => {
   el.textContent = siteContent['nav'][`nav-item-${(index+1)}`]
+  // Nav Text Green
+  el.style.color = "green"
 });
+let navElement = document.querySelector('nav')
+let newNavItems = [
+  {
+    "navText": "Gallery",
+    "link": "#"
+  },
+  {
+    "navText": "FAQ",
+    "link": "#"
+  }
+]
+newNavItems.forEach((el) => {
+  let newItem = document.createElement('a')
+  newItem.textContent = el['navText']
+  newItem.setAttribute('href', el['link']);
+  newItem.style.color = "green"
+  navElement.appendChild(newItem)
+})
 
 // CTA Content
 let ctaHeading1 = document.querySelector('.cta h1')
@@ -87,3 +107,5 @@ mainHeading4.forEach((el, index) => {
 mainSectionContent.forEach((el, index) => {
   el.textContent = siteContent['main-content'][`${mainContentOrder[index]}-content`]
 });
+
+
