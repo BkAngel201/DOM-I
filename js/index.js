@@ -38,5 +38,91 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
+let logo = document.getElementById("logo-img")
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let ctaImg = document.getElementById("cta-img")
+ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+
+let middleImg = document.getElementById("middle-img")
+middleImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
+
+// Nav Items
+let navItems = document.querySelectorAll("nav a")
+navItems.forEach((el, index) => {
+  el.textContent = siteContent['nav'][`nav-item-${(index+1)}`]
+  // Nav Text Green
+  el.style.color = "green"
+});
+let navElement = document.querySelector('nav')
+let newNavItems = [
+  {
+    "navText": "Gallery",
+    "link": "#"
+  },
+  {
+    "navText": "FAQ",
+    "link": "#"
+  }
+]
+newNavItems.forEach((el) => {
+  let newItem = document.createElement('a')
+  newItem.textContent = el['navText']
+  newItem.setAttribute('href', el['link']);
+  newItem.style.color = "green"
+  navElement.appendChild(newItem)
+})
+
+// CTA Content
+let ctaHeading1 = document.querySelector('.cta h1')
+ctaHeading1.textContent = siteContent['cta']['h1']
+
+let ctaButton = document.querySelector('.cta button')
+ctaButton.textContent = siteContent['cta']['button']
+
+// Contact Content
+let contactHeading4 = document.querySelector('.contact h4')
+contactHeading4.textContent = siteContent['contact']['contact-h4']
+
+let contactAddress = document.querySelectorAll('.contact p')
+let contactContentOrder = ['address', 'phone','email']
+contactAddress.forEach((el, index) => {
+  el.textContent = siteContent['contact'][contactContentOrder[index]]
+});
+
+
+// footer
+let footerCopy = document.querySelector('footer p')
+footerCopy.textContent = siteContent['footer']['copyright']
+
+// Main Content
+let mainHeading4 = document.querySelectorAll('.text-content h4')
+let mainSectionContent = document.querySelectorAll('.text-content p')
+
+mainContentOrder = ['features', 'about', 'services', 'product', 'vision']
+
+mainHeading4.forEach((el, index) => {
+  el.textContent = siteContent['main-content'][`${mainContentOrder[index]}-h4`]
+});
+mainSectionContent.forEach((el, index) => {
+  el.textContent = siteContent['main-content'][`${mainContentOrder[index]}-content`]
+});
+
+
+// Button for event listening
+let ctaTextElement = document.querySelector('.cta-text')
+let newUpdateButton = document.createElement('button')
+newUpdateButton.textContent = "Change => Image"
+
+newUpdateButton.addEventListener('click', function() {
+  if(ctaImg.getAttribute('src') == siteContent['cta']['img-src']) {
+    ctaImg.style.width = "379px"
+    ctaImg.style.height = "379px"
+    ctaImg.style.borderRadius = "50%"
+    ctaImg.setAttribute('src', "https://www-tc.pbs.org/wgbh/nova/media/images/bfcppfu.width-2500.png")
+  } else {
+    ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+  }
+  
+})
+ctaTextElement.appendChild(newUpdateButton)

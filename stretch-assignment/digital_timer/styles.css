@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .digit {
@@ -11,4 +12,22 @@ body {
 
 .redDigit {
   color: red;
+}
+
+button {
+  border: 1px solid green;
+  padding: 10px 15px;
+  background-color: forestgreen;
+  color: white;
+}
+
+button:hover {
+  background-color: darkgreen;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  border-color: maroon;
 }
