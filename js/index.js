@@ -109,3 +109,20 @@ mainSectionContent.forEach((el, index) => {
 });
 
 
+// Button for event listening
+let ctaTextElement = document.querySelector('.cta-text')
+let newUpdateButton = document.createElement('button')
+newUpdateButton.textContent = "Change => Image"
+
+newUpdateButton.addEventListener('click', function() {
+  if(ctaImg.getAttribute('src') == siteContent['cta']['img-src']) {
+    ctaImg.style.width = "379px"
+    ctaImg.style.height = "379px"
+    ctaImg.style.borderRadius = "50%"
+    ctaImg.setAttribute('src', "https://www-tc.pbs.org/wgbh/nova/media/images/bfcppfu.width-2500.png")
+  } else {
+    ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+  }
+  
+})
+ctaTextElement.appendChild(newUpdateButton)
