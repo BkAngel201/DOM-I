@@ -8,14 +8,14 @@ function StartTimer () {
     // timer elements
     // color initialization
     let secondTensElement = document.getElementById("secondTens")
-    secondTensElement.style.color = "black"
+    secondTensElement.classList.remove("redDigit")
     let secondOnesElement = document.getElementById("secondOnes")
-    secondOnesElement.style.color = "black"
+    secondOnesElement.classList.remove("redDigit")
     let colonElement = document.getElementById("colon")
     let msHundredsElement = document.getElementById("msHundreds")
-    msHundredsElement.style.color = "black"
+    msHundredsElement.classList.remove("redDigit")
     let msTensElement = document.getElementById("msTens")
-    msTensElement.style.color = "black"
+    msTensElement.classList.remove("redDigit")
 
     // Timer Variables
     let secondTens = 0
@@ -38,10 +38,10 @@ function StartTimer () {
             msTensElement.textContent = miliSecondCounter - 1
             if(secondTens == 1) {
                 clearInterval(myInterval)
-                secondTensElement.style.color = "red"
-                secondOnesElement.style.color = "red"
-                msHundredsElement.style.color = "red"
-                msTensElement.style.color = "red"
+                secondTensElement.classList.add("redDigit")
+                secondOnesElement.classList.add("redDigit")
+                msHundredsElement.classList.add("redDigit")
+                msTensElement.classList.add("redDigit")
                 buttonElement.textContent = "Reset Timer"
                 buttonElement.disabled = false
             }
